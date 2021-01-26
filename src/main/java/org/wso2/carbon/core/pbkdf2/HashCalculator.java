@@ -1,12 +1,13 @@
 package org.wso2.carbon.core.pbkdf2;
 
-import org.wso2.carbon.utils.Secret;
-
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Map;
 
+/**
+ * This interface is the common interface for all the hashing algorithms which can be implemented from this.
+ */
 public interface HashCalculator {
 
     /**
@@ -17,8 +18,9 @@ public interface HashCalculator {
      * @param salt           the salt value which is needed for each respective passwords inorder to be hashed.
      * @param metaProperties The attribute which were needed to a hashing algorithm other than salt and value.
      * @return The calculated hash value.
-     * @throws NoSuchAlgorithmException
-     * @throws UnsupportedEncodingException
+     * @throws NoSuchAlgorithmException thrown if there were no such algorithm which is being specified to be used in
+     * particular hashing.
+     * @throws UnsupportedEncodingException thrown when the encoding feature for particular hashing was unsupported.
      * @throws InvalidKeySpecException
      */
     String calculateHash(String value, String salt, Map<String, Object> metaProperties)
