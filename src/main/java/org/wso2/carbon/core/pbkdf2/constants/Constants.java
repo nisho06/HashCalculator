@@ -5,8 +5,6 @@ package org.wso2.carbon.core.pbkdf2.constants;
  */
 public class Constants {
 
-    public static final int DERIVED_KEY_LENGTH = 256;
-    public static final int ITERATIONS = 10000;
     public static final String PBKDF2_PRF = "PBKDF2WithHmacSHA1";
     public static final String CHARSET_UTF_8 = "UTF-8";
     public static final String ITERATION_NAME = "Iterations";
