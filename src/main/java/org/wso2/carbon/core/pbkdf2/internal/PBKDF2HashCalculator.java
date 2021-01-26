@@ -27,7 +27,7 @@ public class PBKDF2HashCalculator implements HashCalculator {
             throws NoSuchAlgorithmException, UnsupportedEncodingException, InvalidKeySpecException {
 
         PBEKeySpec spec = new PBEKeySpec(value.toCharArray(), base64ToByteArray(salt),
-                (int) (metaProperties.get("Iteration Count")), (int) (metaProperties.get("Derived Key Length")));
+                (int) (metaProperties.get(Constants.ITERATION_NAME)), (int) (metaProperties.get(Constants.DERIVED_KEY_LENGTH_NAME)));
         SecretKeyFactory skf = SecretKeyFactory.getInstance(Constants.PBKDF2_PRF);
         byte[] hash = skf.generateSecret(spec).getEncoded();
         return new String(Base64.getEncoder().encode(hash));
