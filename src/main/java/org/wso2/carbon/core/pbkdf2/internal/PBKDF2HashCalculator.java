@@ -49,7 +49,6 @@ public class PBKDF2HashCalculator implements HashCalculator {
     private byte[] base64ToByteArray(String salt) throws UnsupportedEncodingException {
 
         byte[] name = Base64.getEncoder().encode(salt.getBytes());
-        byte[] decodedString = Base64.getDecoder().decode(new String(name).getBytes("UTF-8"));
-        return decodedString;
+        return (Base64.getDecoder().decode(new String(name).getBytes(Constants.CHARSET_UTF_8)));
     }
 }

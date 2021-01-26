@@ -11,7 +11,8 @@ import java.util.Map;
 public interface HashCalculator {
 
     /**
-     * This class is responsible for calulate the hash value of a value(Password, Token) using the particular hashing
+     * This method is responsible for calculating the hash value of a value(Password, Token) using the particular
+     * hashing
      * algorithm which is residing in the implemented class.
      *
      * @param value          the value which needs to be hashed. (eg:- Password, Token)
@@ -27,7 +28,7 @@ public interface HashCalculator {
             throws NoSuchAlgorithmException, UnsupportedEncodingException, InvalidKeySpecException;
 
     /**
-     * This class is responsible for returning the specific hashing algorithm is being used.
+     * This method is responsible for returning the specific hashing algorithm is being used.
      * @return Hashing algorithm which is being used for hashing.
      */
     String getAlgorithm();
