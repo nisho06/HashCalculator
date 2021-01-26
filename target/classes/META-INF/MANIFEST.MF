@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1611643646660
+Build-Jdk: 1.8.0_261
+Built-By: nishothan
+Bundle-ManifestVersion: 2
+Bundle-Name: PBKDF2
+Bundle-SymbolicName: PBKDF2
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.wso2.carbon.core.pbkdf2;version="1.0.0",org.wso2.car
+ bon.core.pbkdf2.constants;version="1.0.0"
+Import-Package: javax.crypto,javax.crypto.spec,org.apache.commons.loggin
+ g;version="[1.2,2)",org.osgi.framework;version="[1.7,2)",org.osgi.servi
+ ce.component;version="[1.2,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Service-Component: OSGI-INF/org.wso2.carbon.core.pbkdf2.xml
+Tool: Bnd-3.2.0.201605172007
