@@ -27,8 +27,9 @@ public class PBKDF2HashCalculator implements HashCalculator {
             throws NoSuchAlgorithmException, UnsupportedEncodingException, InvalidKeySpecException {
 
         PBEKeySpec spec = new PBEKeySpec(value.toCharArray(), base64ToByteArray(salt),
-                (int) (metaProperties.get(Constants.ITERATION_NAME)), (int) (metaProperties.get(Constants.DERIVED_KEY_LENGTH_NAME)));
-        SecretKeyFactory skf = SecretKeyFactory.getInstance(Constants.PBKDF2_PRF);
+                (int) (metaProperties.get(Constants.PBKDF2Constants.ITERATION_NAME)),
+                (int) (metaProperties.get(Constants.PBKDF2Constants.DERIVED_KEY_LENGTH_NAME)));
+        SecretKeyFactory skf = SecretKeyFactory.getInstance(Constants.PBKDF2Constants.PBKDF2_PRF);
         byte[] hash = skf.generateSecret(spec).getEncoded();
         return new String(Base64.getEncoder().encode(hash));
     }
@@ -36,7 +37,7 @@ public class PBKDF2HashCalculator implements HashCalculator {
     @Override
     public String getAlgorithm() {
 
-        return Constants.PBKDF2_PRF;
+        return Constants.PBKDF2Constants.PBKDF2_PRF;
     }
 
     /**
@@ -49,6 +50,6 @@ public class PBKDF2HashCalculator implements HashCalculator {
     private byte[] base64ToByteArray(String salt) throws UnsupportedEncodingException {
 
         byte[] name = Base64.getEncoder().encode(salt.getBytes());
-        return (Base64.getDecoder().decode(new String(name).getBytes(Constants.CHARSET_UTF_8)));
+        return (Base64.getDecoder().decode(new String(name).getBytes(Constants.PBKDF2Constants.CHARSET_UTF_8)));
     }
 }
